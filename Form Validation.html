@@ -6,29 +6,96 @@
     <title>Form Validation</title>
     <script>
         $(document).ready(function(){
+            //when submit is clicked, checks for any invalid data
             $("#submit").click(function(){
+                //first name validation
                 if($("#fname").val().length === 0){
+                    //invalid name
                     $("#fname").css({"background-color":"red"});
+                    $("#fname").css({"color":"white"});
                     $("#fnameE").css({"display": "block"});
 
                 }else{
+                    //valid name
                     $("#fname").css({"background-color":"white"});
+                    $("#fname").css({"color":"black"});
                     $("#fnameE").css({"display": "none"});
                 }
+                //Last name validation
+                if($("#lname").val().length === 0){
+                    //invalid name
+                    $("#lname").css({"background-color":"red"});
+                    $("#lname").css({"color":"white"});
+                    $("#lnameE").css({"display": "block"});
+
+                }else{
+                    //valid name
+                    $("#lname").css({"background-color":"white"});
+                    $("#lname").css({"color":"black"});
+                    $("#lnameE").css({"display": "none"});
+                }
+
 
                 var phone_filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+                //phone number validation
                 if(!phone_filter.test($("#phone").val())){
+                    // invalid phone
                     $("#phone").css({"background-color":"red"});
+                    $("#phone").css({"color":"white"});
                     $("#phoneE").css({"display": "block"});
                 }else{
+                    //valid phone
                     $("#phone").css({"background-color":"white"});
+                    $("#phone").css({"color":"black"});
                     $("#phoneE").css({"display": "none"});
                 }
 
+                email_filter= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                //email validation
+                if(!email_filter.test($("#email").val())){
+                    //invalid email
+                    $("#email").css({"background-color":"red"});
+                    $("#email").css({"color":"white"});
+                    $("#emailE").css({"display": "block"});
+                }else{
+                    //valid email
+                    $("#email").css({"background-color":"white"});
+                    $("#email").css({"color":"black"});
+                    $("#emailE").css({"display": "none"});
+                }
+
+                //birth_filter = /^
+                //DOB validation
+                if(($("#dob").val().length === 0)){
+                    //invalid email
+                    $("#dob").css({"background-color":"red"});
+                    $("#dob").css({"color":"white"});
+                    $("#dobE").css({"display": "block"});
+                }else {
+                    //valid email
+                    $("#dob").css({"background-color": "white"});
+                    $("#dob").css({"color": "black"});
+                    $("#dobE").css({"display": "none"});
+                }
+
+                //Password rules: at least 8 characters and must match confirm password
+                if($("#password").val().length < 8 || $("#password").val() !== $("#password2").val()){
+                    //invalid password
+                    $("#password").css({"background-color":"red"});
+                    $("#password").css({"color":"white"});
+                    $("#password2").css({"background-color":"red"});
+                    $("#password2").css({"color":"white"});
+                    $("#passwordE").css({"display": "block"});
+                }else{
+                    //valid password
+                    $("#password").css({"background-color":"white"});
+                    $("#password").css({"color":"black"});
+                    $("#password2").css({"background-color":"white"});
+                    $("#password2").css({"color":"black"});
+                    $("#passwordE").css({"display": "none"});
+
+                }
             });
-
-
-
         });
     </script>
 </head>
@@ -40,6 +107,7 @@
 
     <label for="lname">Last Name</label>
     <input type="text" name="lname" id="lname" /><br />
+    <div id="lnameE" style="display:none">Field must be filled</div>
 
     <label for="street">Street Address</label>
     <input type="text" name="street" id="street" /><br />
@@ -47,8 +115,10 @@
     <label for="street2">Address 2</label>
     <input type="text" name="street2" id="street2" /><br />
 
+
     <label for="city">City</label>
     <input type="text" name="city" id="city" />
+    <div id="cityE" style="display:none">Field must be filled</div>
     <label for="state">State</label>
     <select name="state" id="state">
         <option value="AL">Alabama</option>
@@ -105,23 +175,27 @@
     </select>
     <label for="zip">Zip</label>
     <input type="text" name="city" id="zip" /><br />
+    <div id="zipE" style="display:none">Field must be filled</div>
 
     <label for="phone">Phone</label>
     <input type="text" name="phone" id="phone" placeholder="123-456-7890" /><br />
     <div id="phoneE" style="display:none">Please enter a valid phone number.</div>
 
     <label for="email">Email</label>
-    <input type="text" name="email" id="email" /><br />
+    <input type="text" name="email" id="email" placeholder ="john.doe@website.com" /><br />
     <div id="emailE" style="display:none">Please enter a valid email.</div>
 
     <label for="dob">DOB</label>
     <input type="text" name="dob" id="dob" /><br />
+    <div id="dobE" style="display:none">Field must be filled</div>
 
     <label for="username">Username</label>
     <input type="text" name="username" id="username" /><br />
+    <div id="usernameE" style="display:none">Please enter a valid email.</div>
 
     <label for="password">Password</label>
     <input type="text" name="password" id="password" /><br />
+    <div id="passwordE" style="display:none">Password must be at least 8 characters. Password and confirm password must match.</div>
 
     <label for="password2">Confirm Password</label>
     <input type="text" name="password2" id="password2" /><br />
