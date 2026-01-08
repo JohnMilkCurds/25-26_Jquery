@@ -35,6 +35,32 @@
                     $("#lnameE").css({"display": "none"});
                 }
 
+                //city validation
+                if($("#city").val().length === 0){
+                    //invalid name
+                    $("#city").css({"background-color":"red"});
+                    $("#city").css({"color":"white"});
+                    $("#cityE").css({"display": "block"});
+
+                }else{
+                    //valid name
+                    $("#city").css({"background-color":"white"});
+                    $("#city").css({"color":"black"});
+                    $("#cityE").css({"display": "none"});
+                }
+                //zip validation
+                if($("#zip").val().length === 0){
+                    //invalid name
+                    $("#zip").css({"background-color":"red"});
+                    $("#zip").css({"color":"white"});
+                    $("#zipE").css({"display": "block"});
+
+                }else{
+                    //valid name
+                    $("#zip").css({"background-color":"white"});
+                    $("#zip").css({"color":"black"});
+                    $("#zipE").css({"display": "none"});
+                }
 
                 var phone_filter = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
                 //phone number validation
@@ -64,9 +90,9 @@
                     $("#emailE").css({"display": "none"});
                 }
 
-                //birth_filter = /^
+                birth_filter = /^[0-9]{2}\.[0-9]{2}\.[0-9]{2}$/;
                 //DOB validation
-                if(($("#dob").val().length === 0)){
+                if(!birth_filter.test($("#dob").val())){
                     //invalid email
                     $("#dob").css({"background-color":"red"});
                     $("#dob").css({"color":"white"});
@@ -78,6 +104,19 @@
                     $("#dobE").css({"display": "none"});
                 }
 
+                //Username filter
+                if($("#username").val().length === 0){
+                    //invalid name
+                    $("#username").css({"background-color":"red"});
+                    $("#username").css({"color":"white"});
+                    $("#usernameE").css({"display": "block"});
+
+                }else{
+                    //valid name
+                    $("#username").css({"background-color":"white"});
+                    $("#username").css({"color":"black"});
+                    $("#usernameE").css({"display": "none"});
+                }
                 //Password rules: at least 8 characters and must match confirm password
                 if($("#password").val().length < 8 || $("#password").val() !== $("#password2").val()){
                     //invalid password
@@ -186,12 +225,12 @@
     <div id="emailE" style="display:none">Please enter a valid email.</div>
 
     <label for="dob">DOB</label>
-    <input type="text" name="dob" id="dob" /><br />
+    <input type="text" name="dob" id="dob" placeholder="00.00.00" /><br />
     <div id="dobE" style="display:none">Field must be filled</div>
 
     <label for="username">Username</label>
     <input type="text" name="username" id="username" /><br />
-    <div id="usernameE" style="display:none">Please enter a valid email.</div>
+    <div id="usernameE" style="display:none">Field must be filled.</div>
 
     <label for="password">Password</label>
     <input type="text" name="password" id="password" /><br />
