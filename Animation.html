@@ -8,27 +8,74 @@
     <script>
 
         $(document).ready(function(){
-            $("button").click(function(){
+            $("#throw").click(function(){
                 $("#sniper").animate({
-                    left: "+50"
+
                 });
-                $("#medic").animate({
-                    left: "+10"
+
+                $("#jar").animate({
+                    right: "+=900px",
+                    opacity:"0"
                 });
+
                 $("#scout").animate({
-                    left: "+20"
+                    opacity:"0"
                 });
 
             })
+
+            $("#reaction").click(function(){
+                $("#scout-text").css({
+                    color:"black"
+                });
+
+                $("#medic-text").css({
+                    color:"black"
+                });
+            });
+
+            $("#death").click(function(){
+                $("#scout-text").css({
+                    color:"white"
+                });
+                $("#scout-cry").css({
+                    color:"black"
+                });
+
+                $("#medic-text").css({
+                    color:"white"
+                });
+
+                $("#jarred_scout").animate({
+                    opacity:"0"
+                });
+            });
+
         });
+
+
     </script>
 </head>
 <body>
 
-<button>CLICKYY</button>
-<img id="sniper" src="img/sniper.webp" style="position:absolute">
-<img id="medic" src="img/medic.webp" style="position:absolute">
-<img id="scout" src="img/scout.webp">
+<button id="throw">CLICKYY FIRSST</button> <br>
+<button id="reaction">CLICKYY NEXT</button> <br>
+<button id="death">CLICKYY LAST</button>
+<img id="medic" src="img/medic.webp" style="position:absolute; left:200px" >
+<p id="medic-text" style="position:absolute; left:200px; top:250px; color:white">NO! DUMKOV</p>
+
+<img id="jarred_scout" src="img/jar_scout.png" style="position:absolute; left:400px" >
+<img id="scout" src="img/scout.webp" style="position:absolute; left:400px" >
+<p id="scout-text" style="position:absolute; left:400px; top:250px; color:white;">MEDIC HEELP</p>
+<p id="scout-cry" style="position:absolute; left:400px; top:250px; color:white;">ARRGHHHHH</p>
+
+
+
+<img id="jar" src="img/jarate.webp" style="position:absolute; width:50px; right:300px " >
+<img id="sniper" src="img/sniper.webp" style="position:absolute;right:300px">
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
